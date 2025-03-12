@@ -49,11 +49,13 @@ class QuestionDetailsActivity : AppCompatActivity(), QuestionDetailsViewMvc.List
     override fun onStart() {
         super.onStart()
         fetchQuestionDetails()
+        viewMvc.registerListener(this)
     }
 
     override fun onStop() {
         super.onStop()
         coroutineScope.coroutineContext.cancelChildren()
+        viewMvc.unregisterListener(this)
     }
 
     override fun onNavigateUpClick() {

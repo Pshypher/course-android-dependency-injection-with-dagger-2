@@ -56,6 +56,14 @@ class QuestionDetailsViewMvc(
         }
     }
 
+    fun registerListener(listener: Listener) {
+        listeners.add(listener)
+    }
+
+    fun unregisterListener(listener: Listener) {
+        listeners.remove(listener)
+    }
+
     fun showProgressIndication() {
         swipeRefresh.isRefreshing = true
     }
