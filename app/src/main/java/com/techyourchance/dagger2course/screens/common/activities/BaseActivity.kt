@@ -9,6 +9,6 @@ open class BaseActivity: AppCompatActivity() {
     private val appCompositionRoot get() = (application as MyApplication).appCompositionRoot
 
     val compositionRoot by lazy {
-        ActivityCompositionRoot(this, appCompositionRoot)
+        ActivityCompositionRoot(this, supportFragmentManager, appCompositionRoot)
     }
 }
