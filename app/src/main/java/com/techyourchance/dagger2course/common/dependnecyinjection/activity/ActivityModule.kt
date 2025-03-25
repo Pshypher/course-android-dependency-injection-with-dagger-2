@@ -1,5 +1,6 @@
 package com.techyourchance.dagger2course.common.dependnecyinjection.activity
 
+import android.app.Application
 import android.view.LayoutInflater
 import androidx.appcompat.app.AppCompatActivity
 import com.techyourchance.dagger2course.common.dependnecyinjection.app.AppComponent
@@ -9,15 +10,11 @@ import dagger.Provides
 
 @Module
 class ActivityModule(
-        val activity: AppCompatActivity,
-        private val appComponent: AppComponent
+    val activity: AppCompatActivity
 ) {
-
     @Provides
     fun activity() = activity
 
-    @Provides
-    fun application() = appComponent.application()
 
     @Provides
     @ActivityScope
@@ -28,8 +25,4 @@ class ActivityModule(
 
     @Provides
     fun fragmentManager() = activity.supportFragmentManager
-
-    @Provides
-    fun stackoverflowApi() = appComponent.stackoverflowApi()
-
 }
